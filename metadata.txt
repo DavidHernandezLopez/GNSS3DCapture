@@ -1,0 +1,39 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=GNSS 3D Capture
+qgisMinimumVersion=2.0
+description=A plugin for capture 3D points from GNSS equipment
+version=0.1
+author=David Hernández López, Insittuto de Desarrollo Regional - UCLM
+email=david.hernandez@uclm.es
+
+about=A pluign for capture 3D point from GNSS equipment Author: David Hernández López Institute for Regional Development University of Castilla-La Mancha Spain
+
+tracker=github.com
+repository=github.com
+# End of mandatory metadata
+
+# Recommended items:
+
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=GNSS,Capture,3D,geodesy, surveying
+
+homepage=https://github.com/daherlo19700113/GNSS3DCapture
+category=Plugins
+icon=icon.png
+# experimental flag
+experimental=True
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
