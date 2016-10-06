@@ -13,7 +13,7 @@ from qgis.core import QgsApplication,QgsCoordinateReferenceSystem
 import constants
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
-    os.path.dirname(__file__), 'gps_3d_capture_plugin_dialog_base.ui'))
+    os.path.dirname(__file__), 'gnss_3d_capture_configure_dialog.ui'))
 
 class GNSS3DCaptureDialog(QtGui.QDialog, FORM_CLASS):
     def __init__(self,
@@ -54,9 +54,9 @@ class GNSS3DCaptureDialog(QtGui.QDialog, FORM_CLASS):
     def getGeoidModelFileName(self):
         geoidModelFileName=""
         if self.geoidCheckBox.isChecked():
-            geoidModel=self.geoidComboBox.setCurrentText()
-            if geoidModel != constants.CONST_GPS_3D_CAPTURE_PLUGIN_COMBOBOX_NO_SELECT_OPTION:
-                geoidModelFileName = self.GeoidsPath + "/" + geoidModel + constants.CONST_GPS_3D_CAPTURE_PLUGIN_GEOIDS_FILE_EXTENSION
+            geoidModel=self.geoidComboBox.currentText()
+            if geoidModel != constants.CONST_GNSS_3D_CAPTURE_COMBOBOX_NO_SELECT_OPTION:
+                geoidModelFileName = self.GeoidsPath + "/" + geoidModel + constants.CONST_GNSS_3D_CAPTURE_GEOIDS_FILE_EXTENSION
         return geoidModelFileName
 
     def getIsOk(self):
@@ -72,7 +72,7 @@ class GNSS3DCaptureDialog(QtGui.QDialog, FORM_CLASS):
         return self.geoidCheckBox.isChecked()
 
     def getUseHeight(self):
-        return self.heigthFieldCheckBox.isChecked()
+        return self.heightFieldCheckBox.isChecked()
 
     def getUseName(self):
         return self.nameFieldCheckBox.isChecked()
@@ -90,22 +90,22 @@ class GNSS3DCaptureDialog(QtGui.QDialog, FORM_CLASS):
         self.buttonBox.accepted.connect(self.selectAccept)
 
     def initializeGeoidComboBox(self):
-        self.geoidComboBox.addItem(constants.CONST_GPS_3D_CAPTURE_PLUGIN_COMBOBOX_NO_SELECT_OPTION)
+        self.geoidComboBox.addItem(constants.CONST_GNSS_3D_CAPTURE_COMBOBOX_NO_SELECT_OPTION)
         qgisAppPath=QgsApplication.prefixPath()
         qgisDir=QDir(qgisAppPath)
         qgisDir.cdUp()
         qgisDir.cdUp()
         qgisPath=qgisDir.absolutePath()
-        shareDir=QDir(qgisPath+constants.CONST_GPS_3D_CAPTURE_PLUGIN_GEOIDS_RELATIVE_PATH)
-        self.GeoidsPath = qgisPath+constants.CONST_GPS_3D_CAPTURE_PLUGIN_GEOIDS_RELATIVE_PATH
-        geoidFileNames = shareDir.entryList([constants.CONST_GPS_3D_CAPTURE_PLUGIN_GEOIDS_FILTER_1], QtCore.QDir.Files) #,QtCore.QDir.Name)
+        shareDir=QDir(qgisPath + constants.CONST_GNSS_3D_CAPTURE_GEOIDS_RELATIVE_PATH)
+        self.GeoidsPath = qgisPath+constants.CONST_GNSS_3D_CAPTURE_GEOIDS_RELATIVE_PATH
+        geoidFileNames = shareDir.entryList([constants.CONST_GNSS_3D_CAPTURE_GEOIDS_FILTER_1], QtCore.QDir.Files) #,QtCore.QDir.Name)
         for geoidFileName in geoidFileNames:
             geoidFileInfo=QFileInfo(geoidFileName)
             self.geoidComboBox.addItem(geoidFileInfo.baseName())
 
     def selectAccept(self):
-        if self. self.crsLineEdit.text():
-            if self.csvLineEdit.text():
+        if self.crsLineEdit.text():
+            if self.csvFileLineEdit.text():
                 self.isOk = True
         self.close()
 
@@ -122,7 +122,7 @@ class GNSS3DCaptureDialog(QtGui.QDialog, FORM_CLASS):
         oldFileName=self.csvFileLineEdit.text()
         title="Select CSV file"
         filters="Files (*.csv)"
-        fileName = QFileDialog.getSaveFileName(self,title,self.path,filters)
+        fileName = QFileDialog.getSaveFileName(self,title,self.lastPath,filters)
         if fileName:
             fileInfo = QFileInfo(fileName)
             self.lastPath=fileInfo.absolutePath()
