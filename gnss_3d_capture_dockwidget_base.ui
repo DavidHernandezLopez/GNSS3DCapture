@@ -174,7 +174,7 @@
        <item row="9" column="0">
         <widget class="QLabel" name="heightFromGeoidLabel">
          <property name="text">
-          <string>Height from Geoid:</string>
+          <string>Orthometric Height:</string>
          </property>
         </widget>
        </item>
