@@ -30,11 +30,11 @@ Notes:
 
 A set of images:
 
--><-![](file:///C:/Users/David.Hernandez/.qgis2/python/plugins/GNSS3DCapture/images/image001.png)
+->![](file:./images/image001.png)<-
 
--><-![](file:///C:/Users/David.Hernandez/.qgis2/python/plugins/GNSS3DCapture/images/image002.png)
+->![](file:./images/image002.png)<-
 
--><-![](file:///C:/Users/David.Hernandez/.qgis2/python/plugins/GNSS3DCapture/images/image003.png)
+->![](file:./images/image003.png)<-
 
 Contact:  
 David Hernández López, david.hernandez@uclm.es
