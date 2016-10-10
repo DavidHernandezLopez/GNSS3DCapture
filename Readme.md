@@ -30,11 +30,11 @@ Notes:
 
 A set of images:
 
-->![](file:./images/image001.png)<-
+->![](/images/image001.png)<-
 
-->![](file:./images/image002.png)<-
+->![](/images/image002.png)<-
 
-->![](file:./images/image003.png)<-
+->![](/images/image003.png)<-
 
 Contact:  
 David Hernández López, david.hernandez@uclm.es
