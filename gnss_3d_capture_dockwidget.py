@@ -288,6 +288,7 @@ class GNSS3DCaptureDockWidget(QtGui.QDockWidget, FORM_CLASS):
         fet.setAttributes(listFieldValues)
         self.memoryLayerDataProvider.addFeatures([fet])
         self.memoryLayer.commitChanges()
+        self.memoryLayerName.triggerRepaint()
         if self.useNumber:
             self.pointNumbers.append(int(number))
             candidateValue = self.pointNumbers[len(self.pointNumbers) - 1] + 1
