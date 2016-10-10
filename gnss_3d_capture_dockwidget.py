@@ -411,6 +411,16 @@ class GNSS3DCaptureDockWidget(QtGui.QDockWidget, FORM_CLASS):
                     ok = True
 
     def startProcess(self):
+        connectionRegistry = QgsGPSConnectionRegistry().instance()
+        connectionList = connectionRegistry.connectionList()
+        if connectionList == []:
+            msgBox=QMessageBox(self)
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle(constants.CONST_GNSS_3D_CAPTURE_WINDOW_TITLE)
+            msgBox.setText("GPS connection not detected.\nConnect a GPS and try again")
+            msgBox.exec_()
+            return
+        GPSInfo = connectionList[0].currentGPSInformation()
         self.capturePointGroupBox.setEnabled(False)
         if not self.configureDialog.getIsOk():
             msgBox=QMessageBox(self)
@@ -591,9 +601,16 @@ class GNSS3DCaptureDockWidget(QtGui.QDockWidget, FORM_CLASS):
         #                                             QgsField("SecondCoordinate", QVariant.Double),
         #                                             QgsField("Height", QVariant.Double),
         #                                             QgsField("Code",  QVariant.Int)])
-        #self.memoryLayer.loadNamedStyle('C:/OSGeo4W/apps/qgis/python/plugins/Gopher2QGIS/styles/Receiver_Style.qml')
         self.memoryLayer.startEditing()
         self.memoryLayer.commitChanges()
+        qmlFileName = self.path_plugin + "/" + constants.CONST_GNSS_3D_CAPTURE_QML_TEMPLATES_FOLDER + "/"
+        if self.useName:
+            qmlFileName += constants.CONST_GNSS_3D_CAPTURE_QML_TEMPLATES_FOLDER_QML_POINT_NAME_Z
+        elif self.useNumber:
+            qmlFileName += constants.CONST_GNSS_3D_CAPTURE_QML_TEMPLATES_FOLDER_QML_POINT_NUMBER_Z
+        else:
+            qmlFileName += constants.CONST_GNSS_3D_CAPTURE_QML_TEMPLATES_FOLDER_QML_POINT_Z
+        self.memoryLayer.loadNamedStyle(qmlFileName)
         QgsMapLayerRegistry.instance().addMapLayer(self.memoryLayer)
         epsgCodeGps = constants.CONST_GNSS_3D_CAPTURE_EPSG_CODE_GPS
         self.crsGps = QgsCoordinateReferenceSystem(epsgCodeGps)
