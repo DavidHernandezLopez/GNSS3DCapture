@@ -2,7 +2,7 @@
 ===================
 
 
-This is a QGis plugin to measure points from a GNSS connection.
+This is a QGis plugin to measure 3D points from a GNSS connection
 
 1. Install the plugin
 2. In a QGis project, set a valid GNSS connection

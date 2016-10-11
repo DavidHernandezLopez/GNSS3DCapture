@@ -9,15 +9,15 @@
 [general]
 name=GNSS 3D Capture
 qgisMinimumVersion=2.0
-description=A plugin for capture 3D points from GNSS equipment
+description=This is a QGis plugin to measure 3D points from a GNSS connection
 version=0.1
 author=David Hernández López, Insittuto de Desarrollo Regional - UCLM
 email=david.hernandez@uclm.es
 
-about=A pluign for capture 3D point from GNSS equipment Author: David Hernández López Institute for Regional Development University of Castilla-La Mancha Spain
+about=A plugin for capture 3D point from GNSS equipment
 
-tracker=github.com
-repository=github.com
+tracker=https://github.com/daherlo19700113/GNSS3DCapture
+
 # End of mandatory metadata
 
 # Recommended items:
@@ -30,6 +30,7 @@ tags=GNSS,Capture,3D,geodesy, surveying
 
 homepage=https://github.com/daherlo19700113/GNSS3DCapture
 category=Plugins
+tags=GNSS 3D, Orthometric Height, Geoid Model
 icon=icon.png
 # experimental flag
 experimental=True

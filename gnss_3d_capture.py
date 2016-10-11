@@ -31,7 +31,7 @@ import os.path
 
 import sys
 sys.path.append("C:\Program Files (x86)\JetBrains\PyCharm 5.0.4\debug-eggs\pycharm-debug.egg")
-import pydevd
+#import pydevd
 
 class GNSS3DCapture:
     """QGIS Plugin Implementation."""
