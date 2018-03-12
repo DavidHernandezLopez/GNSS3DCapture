@@ -30,7 +30,9 @@ from gnss_3d_capture_dockwidget import GNSS3DCaptureDockWidget
 import os.path
 
 import sys
-sys.path.append("C:\Program Files (x86)\JetBrains\PyCharm 5.0.4\debug-eggs\pycharm-debug.egg")
+#sys.path.append("C:\Program Files (x86)\JetBrains\PyCharm 5.0.4\debug-eggs\pycharm-debug.egg")
+#import pydevd
+#sys.path.append("C:\Program Files\JetBrains\PyCharm 2017.3.4\debug-eggs\pycharm-debug.egg")
 #import pydevd
 
 class GNSS3DCapture:

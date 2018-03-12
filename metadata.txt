@@ -29,6 +29,7 @@ tracker=https://github.com/daherlo19700113/GNSS3DCapture
 tags=GNSS,Capture,3D,geodesy, surveying
 
 homepage=https://github.com/daherlo19700113/GNSS3DCapture
+repository=https://github.com/daherlo19700113/GNSS3DCapture
 category=Plugins
 tags=GNSS 3D, Orthometric Height, Geoid Model
 icon=icon.png
